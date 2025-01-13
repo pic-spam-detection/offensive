@@ -31,7 +31,13 @@ python spam_generation.py --model <model_name>
 Il faut spécifier le modèle à utiliser pour génerer les mails. Options :
 
 - `llm`. Un modèle qui se base sur un LLM. **Attention** : ce modèle peut prendre un temps important d'installation. À utiliser avec GPU.
-- `dataset`. Un modèle qui effectue un tirqge au sort à partir d'un dataset spécialisé (https://huggingface.co/datasets/TrainingDataPro/email-spam-classification).
+- `dataset`. Un modèle qui effectue un tirage au sort à partir d'un dataset spécialisé (https://huggingface.co/datasets/TrainingDataPro/email-spam-classification).
+
+Le nombre de mails à génere peut être spévifié via `--n_samples` (5 par défaut). Par exemple :
+
+```bash
+python spam_generation.py --model "dataset" --n_samples 10
+```
 
 D'autres modèles seront ajouter dans l'avenir.
 
