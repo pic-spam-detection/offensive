@@ -1,5 +1,6 @@
 import os
 import argparse
+import random
 from openai import AzureOpenAI
 
 def read_api_config(api_key_path, endpoint_path):
@@ -9,12 +10,21 @@ def read_api_config(api_key_path, endpoint_path):
         api_base = file.read().strip()
     return api_key, api_base
 
-def generate_phishing_email(client, deployment_name):
+phishing_scenarios = [
+    "Generate a fake phishing email about a compromised account that requires immediate action.",
+    "Generate a fake phishing email claiming that a document has been shared with the recipient.",
+    "Generate a fake phishing email about an unusual login attempt from an unrecognized device.",
+    "Generate a fake phishing email offering a special discount or promotion.",
+    "Generate a fake phishing email pretending to be from a bank, asking to verify account details.",
+    "Generate a fake phishing email about a package delivery issue that requires the recipient's attention.",
+]
+
+def generate_phishing_email(client, deployment_name, scenario):
     response = client.chat.completions.create(
         model=deployment_name,
         messages=[
             { "role": "system", "content": "You are a phishing expert whose role is to generate spam e-mail to help and train a spam detection filter" },
-            { "role": "user", "content": "Generate a fake phishing/spam email. The email should encourage the recipient to click on a link or download an attachment. You may use social engineering tactics" }
+            { "role": "user", "content": scenario }
         ],
         max_tokens=200
     )
@@ -40,6 +50,7 @@ client = AzureOpenAI(
 
 
 for i in range(args.number):
+    scenario = random.choice(phishing_scenarios)
     print(f"\n=== Email #{i + 1} ===")
-    email = generate_phishing_email(client, deployment_name)
+    email = generate_phishing_email(client, deployment_name, scenario)
     print(email)
