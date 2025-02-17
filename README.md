@@ -7,16 +7,16 @@ Ce repository contient les travaux de l’équipe Offense pour :
 - Générer automatiquement des **emails frauduleux indétectables** à l’aide d’IA générative (LLMs).
 - Tester nos attaques face au modèle défensif de l’équipe adverse.
 
-## **Installation**
+## **Quickstart**
 
-Cloner le dépôt `git`:
+Clone `git` repo:
 
 ```bash
 git clone git@github.com:pic-spam-detection/offensive.git
 cd offensive
 ```
 
-Installer les librairies nécessaires :
+Install necessary dependencies:
 
 ```bash
 pip install torch transformers datasets click
@@ -24,27 +24,24 @@ pip install torch transformers datasets click
 
 ## **Usage**
 
+### Generate
+
 ```bash
-python spam_generation.py --model <model_name>
+python main.py generate --n_samples <n_samples> --output <output_filepath>
 ```
 
-Il faut spécifier le modèle à utiliser pour génerer les mails. Options :
-
-- `llm`. Un modèle qui se base sur un LLM. **Attention** : ce modèle peut prendre un temps important d'installation. À utiliser avec GPU.
-- `dataset`. Un modèle qui effectue un tirage au sort à partir d'un dataset spécialisé (https://huggingface.co/datasets/TrainingDataPro/email-spam-classification).
-
-Le nombre de mails à génere peut être spévifié via `--n_samples` (5 par défaut). Par exemple :
+### Evaluate
 
 ```bash
-python spam_generation.py --model "dataset" --n_samples 10
+python main.py evaluate
 ```
 
-D'autres modèles seront ajouter dans l'avenir.
+---
 
-Si multiples versions de Python sont disponibles sur votre ordinatuer, utilisez Python 3:
+If mutliple versions of Python are available, use Python 3:
 
 ```bash
-python3 spam_generation.py --model <model_name>
+python3 main.py evaluate
 ```
 
 ## **Known issues**
@@ -54,3 +51,8 @@ python3 spam_generation.py --model <model_name>
 ```bash
 autopep8 --max-line-length 60 --in-place --aggressive --aggressive <your_file>.py
 ```
+
+## TODO
+
+- Try different LLMs
+- Set up few shot and zero shot approaches
