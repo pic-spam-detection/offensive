@@ -19,7 +19,7 @@ cd offensive
 Install necessary dependencies:
 
 ```bash
-pip install torch transformers datasets click
+pip install torch transformers datasets click pre-commit
 ```
 
 ## **Usage**
