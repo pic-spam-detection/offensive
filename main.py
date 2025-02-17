@@ -21,8 +21,12 @@ def generate(n_samples, output):
         spam = model.generate()
         emails.append(spam)
 
+    print(emails)
+
     with open(output, "w") as file:
         file.write("\n".join(emails))
+
+    print(f"{output} created or overwritten successfully.")
 
 
 # TODO support different models

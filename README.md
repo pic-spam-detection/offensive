@@ -1,4 +1,4 @@
-# ⚔️ Équipe Offense : Génération de Spams
+# ⚔️ Équipe Offense : Génération des Spams
 
 ## **Objectif**
 
