@@ -35,3 +35,7 @@ def evaluate():
     model = LLM()
 
     run_evaluation_suite(model)
+
+
+if __name__ == "__main__":
+    main()
