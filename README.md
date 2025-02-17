@@ -19,7 +19,7 @@ cd offensive
 Installer les librairies nécessaires :
 
 ```bash
-pip install torch transformers datasets
+pip install torch transformers datasets click
 ```
 
 ## **Usage**
