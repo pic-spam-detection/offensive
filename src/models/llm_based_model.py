@@ -1,6 +1,7 @@
 from .abstract_model import AbstractModel
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 
+
 class LLM(AbstractModel):
     def __init__(self):
 
@@ -13,8 +14,7 @@ class LLM(AbstractModel):
             trust_remote_code=True,
         )
 
-        tokenizer = AutoTokenizer.from_pretrained(
-            "microsoft/Phi-3.5-mini-instruct")
+        tokenizer = AutoTokenizer.from_pretrained("microsoft/Phi-3.5-mini-instruct")
 
         self.pipe = pipeline(
             "text-generation",
@@ -23,7 +23,7 @@ class LLM(AbstractModel):
         )
 
     def __parse_output(self, output):
-        return output[0]['generated_text']
+        return output[0]["generated_text"]
 
     def generate(self):
         generation_args = {
@@ -36,7 +36,7 @@ class LLM(AbstractModel):
         messages = [
             {
                 "role": "user",
-                "content": "I want to train a classifier to detect spam emails. Please generate an example of a spam email that is difficult to detect. Provide an email only without any additional text."
+                "content": "I want to train a classifier to detect spam emails. Please generate an example of a spam email that is difficult to detect. Provide an email only without any additional text.",
             },
         ]
 
