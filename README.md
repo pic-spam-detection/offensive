@@ -19,7 +19,7 @@ cd offensive
 Install necessary dependencies:
 
 ```bash
-pip install torch transformers datasets click pre-commit
+pip install -r requirements.txt
 ```
 
 ## **Usage**
@@ -56,3 +56,4 @@ autopep8 --max-line-length 60 --in-place --aggressive --aggressive <your_file>.p
 
 - Try different LLMs
 - Set up few shot and zero shot approaches
+- Run LLM on enron dataset to get summaries of each email (include this in a dataset to analyse common themes of spam emails)
