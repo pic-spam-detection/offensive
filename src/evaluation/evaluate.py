@@ -5,6 +5,7 @@ import copy
 import nltk
 
 nltk.download("punkt")
+nltk.download("punkt_tab")
 
 # Adapted from https://www.digitalocean.com/community/tutorials/automated-metrics-for-evaluating-generated-text#self-bleu
 

@@ -1,6 +1,7 @@
 import click
 from src.evaluation.evaluate import run_evaluation_suite
 from src.models.llm_based_model import LLM
+from tqdm import tqdm
 
 
 @click.group()
@@ -17,7 +18,7 @@ def generate(n_samples, output):
 
     emails = []
 
-    for _ in range(n_samples):
+    for _ in tqdm(range(n_samples)):
         spam = model.generate()
         emails.append(spam)
 
