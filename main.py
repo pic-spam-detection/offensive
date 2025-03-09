@@ -4,7 +4,13 @@ from src.models.gpt_model import GPT
 from src.evaluation.evaluate import run_evaluation_suite
 from src.models.llm_based_model import LLM
 from tqdm import tqdm
+import pandas as pd
 from src.strategy.zero_shot import ZeroShotStrategy
+
+
+def write_as_csv(samples, output_filename):
+    df = pd.DataFrame(samples)
+    df.to_csv(output_filename, index=False)  # index=False to avoid writing row indices
 
 
 @click.group()
@@ -19,7 +25,7 @@ def main():
     type=click.Choice(["GPT3", "Phi3"], case_sensitive=False),
     help="Model to use for generating samples.",
 )
-@click.option("--output", default="out.txt", help="Output file path.")
+@click.option("--output", default="out.csv", help="Output file path.")
 def generate(n_samples, model, output):
     if model.lower() == "GPT3".lower():
         generator = GPT()
@@ -35,12 +41,11 @@ def generate(n_samples, model, output):
     # @TODO write as csv file in enron format
     for _ in tqdm(range(n_samples)):
         spam = strategy.generate()
-        emails.append(spam["text"])
+        emails.append(spam)
 
     print(emails)
 
-    with open(output, "w") as file:
-        file.write("\n".join(emails))
+    write_as_csv(emails, output)
 
     print(f"{output} created or overwritten successfully.")
 
