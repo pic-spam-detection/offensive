@@ -36,21 +36,21 @@ GPT_API_KEY=<put-api-key-here>
 ### Generate
 
 ```bash
-python main.py generate --n_samples <n_samples> --output <output_filepath>
+python main.py generate --n_samples <n_samples> --output <output_filepath> --model <model_name>
 ```
 
 ### Evaluate
 
 ```bash
-python main.py evaluate
+python main.py evaluate --model <model_name>
 ```
 
 ---
 
-If mutliple versions of Python are available, use Python 3:
+If mutliple versions of Python are available, use Python 3. For example:
 
 ```bash
-python3 main.py evaluate
+python3 main.py evaluate --model <model_name>
 ```
 
 ## **Known issues**
@@ -64,5 +64,6 @@ autopep8 --max-line-length 60 --in-place --aggressive --aggressive <your_file>.p
 ## TODO
 
 - Try different LLMs
-- Set up few shot and zero shot approaches
 - Run LLM on enron dataset to get summaries of each email (include this in a dataset to analyse common themes of spam emails)
+- Add visualizaion
+- Generate in the format of enron

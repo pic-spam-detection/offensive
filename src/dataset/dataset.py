@@ -37,6 +37,7 @@ class SpamDataset(Dataset):
         text = self.data_frame.iloc[idx]["Message"]
         title = self.data_frame.iloc[idx]["Subject"]
 
+        # @TODO remove tokenization from dataset
         text_tokenized = self.tokenizer(
             text,
             padding="max_length",
