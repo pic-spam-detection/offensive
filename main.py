@@ -16,12 +16,12 @@ def main():
 @click.option("--n_samples", default=1, help="Number of samples to generate.")
 @click.option(
     "--model",
-    type=click.Choice(["GPT4", "Phi3"], case_sensitive=False),
+    type=click.Choice(["GPT3", "Phi3"], case_sensitive=False),
     help="Model to use for generating samples.",
 )
 @click.option("--output", default="out.txt", help="Output file path.")
 def generate(n_samples, model, output):
-    if model.lower() == "GPT4".lower():
+    if model.lower() == "GPT3".lower():
         generator = GPT()
     elif model.lower() == "Phi3".lower():
         generator = LLM()
