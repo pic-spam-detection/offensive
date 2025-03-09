@@ -1,4 +1,4 @@
-from abstract_model import AbstractModel
+from src.models.abstract_model import AbstractModel
 from openai import AzureOpenAI
 from dotenv import load_dotenv
 import os
