@@ -3,6 +3,7 @@ from nltk.translate.bleu_score import sentence_bleu
 import numpy as np
 import copy
 import nltk
+import pandas as pd
 
 nltk.download("punkt")
 nltk.download("punkt_tab")
@@ -29,12 +30,13 @@ def get_self_bleu(sentences):
     return np.mean(bleu_scores)
 
 
-# TODO make n_samples a CLI argument
-def run_evaluation_suite(model: AbstractModel, n_samples=10):
+def run_evaluation_suite(data_path: str):
+    df = pd.read_csv(data_path).dropna()
+
     bleu_scores = []
 
-    for _ in range(n_samples):
-        spam = model.generate()
+    for row in df:
+        spam = row["Message"]
         sentences = nltk.sent_tokenize(spam)
         bleu_scores.append(get_self_bleu(sentences))
 

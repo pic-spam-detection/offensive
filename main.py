@@ -48,19 +48,12 @@ def generate(n_samples, model, output):
 # @TODO run evaluation on files with generated emails rather than on a model directly
 @main.command()
 @click.option(
-    "--model",
-    type=click.Choice(["GPT4", "Phi3"], case_sensitive=False),
-    help="Model to use for generating samples.",
+    "--path",
+    type=str,
+    help="Path to CSV file with data in Enron format to evaluate",
 )
-def evaluate(model):
-    if model.lower() == "GPT4".lower():
-        generator = GPT()
-    elif model.lower() == "Phi3".lower():
-        generator = LLM()
-    else:
-        raise Exception(f"Unknown model: {model}")
-
-    run_evaluation_suite(generator)
+def evaluate(path):
+    run_evaluation_suite(path)
 
 
 if __name__ == "__main__":

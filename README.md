@@ -33,6 +33,8 @@ GPT_API_KEY=<put-api-key-here>
 
 ## **Usage**
 
+@TODO Update usage
+
 ### Generate
 
 ```bash
