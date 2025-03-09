@@ -32,10 +32,10 @@ def generate(n_samples, model, output):
     strategy = ZeroShotStrategy(dataset, generator)
 
     emails = []
-
+    # @TODO write as csv file in enron format
     for _ in tqdm(range(n_samples)):
         spam = strategy.generate()
-        emails.append(spam)
+        emails.append(spam["text"])
 
     print(emails)
 
