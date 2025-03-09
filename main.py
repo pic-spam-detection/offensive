@@ -1,8 +1,11 @@
 import click
+from dataset.dataset import SpamDataset
 from gpt_model import GPT
 from src.evaluation.evaluate import run_evaluation_suite
 from src.models.llm_based_model import LLM
 from tqdm import tqdm
+
+from strategy.zero_shot import ZeroShotStrategy
 
 
 @click.group()
@@ -26,10 +29,13 @@ def generate(n_samples, model, output):
     else:
         raise Exception(f"Unknown model: {model}")
 
+    dataset = SpamDataset()
+    strategy = ZeroShotStrategy(dataset, generator)
+
     emails = []
 
     for _ in tqdm(range(n_samples)):
-        spam = generator.generate()
+        spam = strategy.generate()
         emails.append(spam)
 
     print(emails)
@@ -40,6 +46,7 @@ def generate(n_samples, model, output):
     print(f"{output} created or overwritten successfully.")
 
 
+# @TODO run evaluation on files with generated emails rather than on a model directly
 @main.command()
 @click.option(
     "--model",
