@@ -22,10 +22,7 @@ class GPT(AbstractModel):
             base_url=f"{API_KEY}/openai/deployments/{deployment_name}",
         )
 
-    def generate(
-        self,
-        question="I want to train a classifier to detect spam emails. Please generate an example of a spam email that is difficult to detect. Provide an email only without any additional text.",
-    ):
+    def generate(self, question):
         response = self.client.chat.completions.create(
             model=deployment_name,
             messages=[
@@ -35,6 +32,6 @@ class GPT(AbstractModel):
                 },
                 {"role": "user", "content": question},
             ],
-            max_tokens=200,
+            max_tokens=500,
         )
         return response.choices[0].message.content

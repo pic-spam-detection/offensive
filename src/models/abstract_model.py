@@ -3,5 +3,5 @@ from abc import ABC, abstractmethod
 
 class AbstractModel(ABC):
     @abstractmethod
-    def generate(self):
-        return "spam"
+    def generate(self, question):
+        return "answer"
