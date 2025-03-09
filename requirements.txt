@@ -4,3 +4,4 @@ datasets
 click
 pre-commit
 nltk
+dotenv

@@ -4,8 +4,7 @@ from src.models.gpt_model import GPT
 from src.evaluation.evaluate import run_evaluation_suite
 from src.models.llm_based_model import LLM
 from tqdm import tqdm
-
-from strategy.zero_shot import ZeroShotStrategy
+from src.strategy.zero_shot import ZeroShotStrategy
 
 
 @click.group()
