@@ -14,4 +14,4 @@ class ZeroShotStrategy(AbstractStrategy):
         """.strip()
 
     def generate(self) -> str:
-        return self.generate.generate(self.prompt)
+        return self.generator.generate(self.prompt)

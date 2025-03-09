@@ -27,4 +27,4 @@ class FewShotStrategy(AbstractStrategy):
             samples += random_sample["text"]
             samples += "\n\n"
 
-        return self.generate.generate(self.prompt_template.format(samples=samples))
+        return self.generator.generate(self.prompt_template.format(samples=samples))
