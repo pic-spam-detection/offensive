@@ -16,6 +16,9 @@ class GPT(AbstractModel):
 
         super(AbstractModel, self).__init__()
 
+        print(API_KEY)
+        print(ENDPOINT)
+
         self.client = AzureOpenAI(
             api_key=API_KEY,
             api_version=api_version,

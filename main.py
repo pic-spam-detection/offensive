@@ -45,7 +45,6 @@ def generate(n_samples, model, output):
     print(f"{output} created or overwritten successfully.")
 
 
-# @TODO run evaluation on files with generated emails rather than on a model directly
 @main.command()
 @click.option(
     "--path",
