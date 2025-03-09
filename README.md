@@ -29,6 +29,7 @@ Then put the following content in the file:
 
 ```
 GPT_API_KEY=<put-api-key-here>
+GPT_ENDPOINT=<put-gpt-url-endpoint-here>
 ```
 
 ## **Usage**

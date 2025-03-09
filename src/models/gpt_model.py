@@ -6,7 +6,7 @@ import os
 load_dotenv()
 
 API_KEY = os.getenv("GPT_API_KEY")
-
+ENDPOINT = os.getenv("GPT_ENDPOINT")
 deployment_name = "gpt-35-turbo"
 api_version = "2024-08-01-preview"
 
@@ -19,7 +19,7 @@ class GPT(AbstractModel):
         self.client = AzureOpenAI(
             api_key=API_KEY,
             api_version=api_version,
-            base_url=f"{API_KEY}/openai/deployments/{deployment_name}",
+            base_url=f"{ENDPOINT}/openai/deployments/{deployment_name}",
         )
 
     def generate(self, question):
