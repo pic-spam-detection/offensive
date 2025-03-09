@@ -1,6 +1,6 @@
 import click
-from dataset.dataset import SpamDataset
-from gpt_model import GPT
+from src.dataset.dataset import SpamDataset
+from src.models.gpt_model import GPT
 from src.evaluation.evaluate import run_evaluation_suite
 from src.models.llm_based_model import LLM
 from tqdm import tqdm

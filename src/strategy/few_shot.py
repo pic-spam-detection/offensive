@@ -1,6 +1,6 @@
-from abstract_model import AbstractModel
-from dataset.dataset import SpamDataset
-from strategy.abstract_strategy import AbstractStrategy
+from src.models.abstract_model import AbstractModel
+from src.dataset.dataset import SpamDataset
+from .abstract_strategy import AbstractStrategy
 from torch.utils.data import RandomSampler
 
 
