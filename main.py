@@ -9,7 +9,19 @@ from src.strategy.zero_shot import ZeroShotStrategy
 
 
 def write_as_csv(samples, output_filename):
-    df = pd.DataFrame(samples)
+    formatted_samples = []
+
+    for sample in samples:
+        formatted_samples.append(
+            {
+                "Message": samples["text"],
+                "Subject": samples["subject"],
+                "Spam/Ham": "spam",
+                "Date": "2025-03-08",
+            }
+        )
+
+    df = pd.DataFrame(formatted_samples)
     df.to_csv(output_filename, index=False)  # index=False to avoid writing row indices
 
 
