@@ -14,10 +14,10 @@ def write_as_csv(samples, output_filename):
     for sample in samples:
         formatted_samples.append(
             {
-                "Message": samples["text"],
-                "Subject": samples["subject"],
+                "Message": sample["text"],
+                "Subject": sample["subject"],
                 "Spam/Ham": "spam",
-                "Date": "2025-03-08",
+                "Date": "2025-03-08",  # @TODO generate random date
             }
         )
 
