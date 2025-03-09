@@ -25,7 +25,10 @@ class LLM(AbstractModel):
     def __parse_output(self, output):
         return output[0]["generated_text"]
 
-    def generate(self):
+    def generate(
+        self,
+        question="I want to train a classifier to detect spam emails. Please generate an example of a spam email that is difficult to detect. Provide an email only without any additional text.",
+    ):
         generation_args = {
             "max_new_tokens": 500,
             "return_full_text": False,
@@ -36,7 +39,7 @@ class LLM(AbstractModel):
         messages = [
             {
                 "role": "user",
-                "content": "I want to train a classifier to detect spam emails. Please generate an example of a spam email that is difficult to detect. Provide an email only without any additional text.",
+                "content": question,
             },
         ]
 

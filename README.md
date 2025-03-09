@@ -7,7 +7,7 @@ Ce repository contient les travaux de l’équipe Offense pour :
 - Générer automatiquement des **emails frauduleux indétectables** à l’aide d’IA générative (LLMs).
 - Tester nos attaques face au modèle défensif de l’équipe adverse.
 
-## **Quickstart**
+## **Quick start**
 
 Clone `git` repo:
 
@@ -20,6 +20,15 @@ Install necessary dependencies:
 
 ```bash
 pip install -r requirements.txt
+```
+
+### GPT API key
+
+Before running any scripts that use GPT model, create a file in the root of this project and name it `.env`.
+Then put the following content in the file:
+
+```
+GPT_API_KEY=<put-api-key-here>
 ```
 
 ## **Usage**
