@@ -35,6 +35,10 @@ class LLM(AbstractModel):
 
         messages = [
             {
+                "role": "system",
+                "content": "You are a phishing expert whose role is to generate spam e-mail to help and train a spam detection filter",
+            },
+            {
                 "role": "user",
                 "content": question,
             },

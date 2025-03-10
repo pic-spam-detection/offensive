@@ -10,7 +10,7 @@ class ZeroShotStrategy(AbstractStrategy):
         self.subject_prompt = """
             I want to train a classifier to detect spam emails.
             Please generate an example of a subject line of spam email that is difficult to detect.
-            Provide a subject line only without any additional text.
+            Provide a subject line only without any additional text and without "Subject" at the beginning.
         """.strip()
 
         self.text_prompt = """
