@@ -11,9 +11,8 @@ def run_pipeline(config_file):
 
         command = ["python", step["script"]]
         for key, value in step["params"].items():
-            command.extend([f"--{key}", value])
+            command.extend([f"--{key}", str(value)])
 
-        print(command)
         subprocess.run(command, check=True)
 
 
