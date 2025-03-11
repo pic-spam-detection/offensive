@@ -1,6 +1,8 @@
 pipeline:
   - step: "Generation with GPT3 (0-shot)"
-    script: "main.py generate"
+    script: "main.py"
+    args:
+      - "generate"
     params:
       n_samples: 3
       output: "generated/GPT3 Zero-shot.csv"
@@ -8,7 +10,9 @@ pipeline:
       strategy: "zero-shot"
 
   - step: "Generation with microsoft/Phi-3.5 (0-shot)"
-    script: "main.py generate"
+    script: "main.py"
+    args:
+      - "generate"
     params:
       n_samples: 3
       output: "generated/microsoft-Phi-3.5 Zero-shot.csv"
@@ -16,7 +20,9 @@ pipeline:
       strategy: "zero-shot"
 
   - step: "Generation with mistralai/Ministral-8B (0-shot)"
-    script: "main.py generate"
+    script: "main.py"
+    args:
+      - "generate"
     params:
       n_samples: 3
       output: "generated/mistralai/Ministral-8B Zero-shot.csv"
@@ -24,7 +30,9 @@ pipeline:
       strategy: "zero-shot"
 
   - step: "Generation with meta-llama/Llama-3.1-8B (0-shot)"
-    script: "main.py generate"
+    script: "main.py"
+    args:
+      - "generate"
     params:
       n_samples: 3
       output: "generated/meta-llama/Llama-3.1-8B Zero-shot.csv"
@@ -32,7 +40,9 @@ pipeline:
       strategy: "zero-shot"
 
   - step: "Generation with GPT3 (few-shot)"
-    script: "main.py generate"
+    script: "main.py"
+    args:
+      - "generate"
     params:
       n_samples: 3
       output: "generated/GPT3 Few-shot.csv"
@@ -40,7 +50,9 @@ pipeline:
       strategy: "few-shot"
 
   - step: "Generation with microsoft/Phi-3.5 (few-shot)"
-    script: "main.py generate"
+    script: "main.py"
+    args:
+      - "generate"
     params:
       n_samples: 3
       output: "generated/microsoft-Phi-3.5 Few-shot.csv"
@@ -48,7 +60,9 @@ pipeline:
       strategy: "few-shot"
 
   - step: "Generation with mistralai/Ministral-8B (few-shot)"
-    script: "main.py generate"
+    script: "main.py"
+    args:
+      - "generate"
     params:
       n_samples: 3
       output: "generated/mistralai/Ministral-8B Few-shot.csv"
@@ -56,7 +70,9 @@ pipeline:
       strategy: "few-shot"
 
   - step: "Generation with meta-llama/Llama-3.1-8B (few-shot)"
-    script: "main.py generate"
+    script: "main.py"
+    args:
+      - "generate"
     params:
       n_samples: 3
       output: "generated/meta-llama/Llama-3.1-8B Few-shot.csv"
@@ -64,6 +80,8 @@ pipeline:
       strategy: "few-shot"
 
   - step: "Evaluation"
-    script: "main.py evaluate"
+    script: "main.py"
+    args:
+      - "evaluate"
     params:
       dir: "generated"

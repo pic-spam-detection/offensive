@@ -10,6 +10,8 @@ def run_pipeline(config_file):
         print(f"Running {step['step']}:")
 
         command = ["python", step["script"]]
+        command.extend(step["args"])
+
         for key, value in step["params"].items():
             command.extend([f"--{key}", str(value)])
 
