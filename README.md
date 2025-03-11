@@ -22,14 +22,27 @@ Install necessary dependencies:
 pip install -r requirements.txt
 ```
 
-### GPT API key
+### Environment variables
 
-Before running any scripts that use GPT model, create a file in the root of this project and name it `.env`.
-Then put the following content in the file:
+Create a file in the root of this project and name it `.env`. In this file you can safely store access tokens and other confidential data. It will be ignored by `git`.
+
+#### GPT API key
+
+Before running any scripts that use GPT model, put the following content in the `.env` file:
 
 ```
+// .env
 GPT_API_KEY=<put-api-key-here>
 GPT_ENDPOINT=<put-gpt-url-endpoint-here>
+```
+
+#### Hugging Face token
+
+To access Hugging Face models, add your HF token into the `.env` file:
+
+```
+// .env
+HF_TOKEN={your access token}
 ```
 
 ## **Usage**
