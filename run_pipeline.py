@@ -13,6 +13,7 @@ def run_pipeline(config_file):
         for key, value in step["params"].items():
             command.extend([f"--{key}", value])
 
+        print(command)
         subprocess.run(command, check=True)
 
 
