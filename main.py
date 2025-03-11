@@ -34,15 +34,15 @@ def main():
 @click.option("--n_samples", default=1, help="Number of samples to generate.")
 @click.option(
     "--model",
-    type=click.Choice(["GPT3", "Phi3"], case_sensitive=False),
+    type=click.Choice(["GPT3", "microsoft/Phi-3.5", ""], case_sensitive=False),
     help="Model to use for generating samples.",
 )
 @click.option("--output", default="out.csv", help="Output file path.")
 def generate(n_samples, model, output):
     if model.lower() == "GPT3".lower():
         generator = GPT()
-    elif model.lower() == "Phi3".lower():
-        generator = LLM()
+    elif model.lower() == "microsoft/Phi-3.5".lower():
+        generator = LLM("microsoft/Phi-3.5-mini-instruct")
     else:
         raise Exception(f"Unknown model: {model}")
 

@@ -1,20 +1,27 @@
 from .abstract_model import AbstractModel
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
 class LLM(AbstractModel):
-    def __init__(self):
+    def __init__(self, llm_name):
 
         super(AbstractModel, self).__init__()
 
+        hf_token = os.getenv("HF_TOKEN")
+
         model = AutoModelForCausalLM.from_pretrained(
-            "microsoft/Phi-3.5-mini-instruct",
+            llm_name,
             device_map="cuda",
             torch_dtype="auto",
             trust_remote_code=True,
+            token=hf_token,
         )
 
-        tokenizer = AutoTokenizer.from_pretrained("microsoft/Phi-3.5-mini-instruct")
+        tokenizer = AutoTokenizer.from_pretrained(llm_name, token=hf_token)
 
         self.pipe = pipeline(
             "text-generation",
