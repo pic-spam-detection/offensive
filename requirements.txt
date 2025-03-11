@@ -7,3 +7,4 @@ nltk
 dotenv
 wordcloud
 seaborn
+yaml

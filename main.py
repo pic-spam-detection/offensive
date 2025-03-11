@@ -6,6 +6,7 @@ from src.models.llm_based_model import LLM
 from tqdm import tqdm
 import pandas as pd
 from src.strategy.zero_shot import ZeroShotStrategy
+from src.strategy.few_shot import FewShotStrategy
 
 
 def write_as_csv(samples, output_filename):
@@ -46,7 +47,18 @@ def main():
     help="Model to use for generating samples.",
 )
 @click.option("--output", default="out.csv", help="Output file path.")
-def generate(n_samples, model, output):
+@click.option(
+    "--strategy",
+    type=click.Choice(
+        [
+            "zero-shot",
+            "few-shot",
+        ],
+        case_sensitive=True,
+    ),
+    help="Strategy to use.",
+)
+def generate(n_samples, model, output, strategy):
     if model.lower() == "GPT3".lower():
         generator = GPT()
     elif model.lower() == "microsoft/Phi-3.5".lower():
@@ -59,7 +71,11 @@ def generate(n_samples, model, output):
         raise Exception(f"Unknown model: {model}")
 
     dataset = SpamDataset()
-    strategy = ZeroShotStrategy(dataset, generator)
+
+    if strategy == "zero-shot":
+        strategy = ZeroShotStrategy(dataset, generator)
+    else:
+        strategy = FewShotStrategy(dataset, generator)
 
     emails = []
 

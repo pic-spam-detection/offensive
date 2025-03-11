@@ -1,0 +1,69 @@
+pipeline:
+  - step: "Generation with GPT3 (0-shot)"
+    script: "main.py generate"
+    params:
+      n_samples: 3
+      output: "generated/GPT3 Zero-shot.csv"
+      model: "GPT3"
+      strategy: "zero-shot"
+
+  - step: "Generation with microsoft/Phi-3.5 (0-shot)"
+    script: "main.py generate"
+    params:
+      n_samples: 3
+      output: "generated/microsoft-Phi-3.5 Zero-shot.csv"
+      model: "microsoft/Phi-3.5"
+      strategy: "zero-shot"
+
+  - step: "Generation with mistralai/Ministral-8B (0-shot)"
+    script: "main.py generate"
+    params:
+      n_samples: 3
+      output: "generated/mistralai/Ministral-8B Zero-shot.csv"
+      model: "mistralai/Ministral-8B"
+      strategy: "zero-shot"
+
+  - step: "Generation with meta-llama/Llama-3.1-8B (0-shot)"
+    script: "main.py generate"
+    params:
+      n_samples: 3
+      output: "generated/meta-llama/Llama-3.1-8B Zero-shot.csv"
+      model: "meta-llama/Llama-3.1-8B"
+      strategy: "zero-shot"
+
+  - step: "Generation with GPT3 (few-shot)"
+    script: "main.py generate"
+    params:
+      n_samples: 3
+      output: "generated/GPT3 Few-shot.csv"
+      model: "GPT3"
+      strategy: "few-shot"
+
+  - step: "Generation with microsoft/Phi-3.5 (few-shot)"
+    script: "main.py generate"
+    params:
+      n_samples: 3
+      output: "generated/microsoft-Phi-3.5 Few-shot.csv"
+      model: "microsoft/Phi-3.5"
+      strategy: "few-shot"
+
+  - step: "Generation with mistralai/Ministral-8B (few-shot)"
+    script: "main.py generate"
+    params:
+      n_samples: 3
+      output: "generated/mistralai/Ministral-8B Few-shot.csv"
+      model: "mistralai/Ministral-8B"
+      strategy: "few-shot"
+
+  - step: "Generation with meta-llama/Llama-3.1-8B (few-shot)"
+    script: "main.py generate"
+    params:
+      n_samples: 3
+      output: "generated/meta-llama/Llama-3.1-8B Few-shot.csv"
+      model: "meta-llama/Llama-3.1-8B"
+      strategy: "few-shot"
+
+  - step: "Evaluation"
+    script: "main.py evaluate"
+    params:
+      dir: "generated"
