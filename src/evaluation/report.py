@@ -38,7 +38,7 @@ def run_evaluation_suite(data_dir: str):
             bleu_scores = []
             full_text = ""
 
-            for row in df:
+            for index, row in df.iterrows():
                 spam = row["Message"]
                 full_text += spam
                 sentences = nltk.sent_tokenize(spam)
