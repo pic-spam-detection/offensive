@@ -50,7 +50,7 @@ def generate(n_samples, model, output):
     strategy = ZeroShotStrategy(dataset, generator)
 
     emails = []
-    # @TODO write as csv file in enron format
+
     for _ in tqdm(range(n_samples)):
         spam = strategy.generate()
         emails.append(spam)
@@ -64,12 +64,12 @@ def generate(n_samples, model, output):
 
 @main.command()
 @click.option(
-    "--path",
+    "--dir",
     type=str,
-    help="Path to CSV file with data in Enron format to evaluate",
+    help="Path to a directory with CSV file(s) with data to evaluate in Enron format",
 )
-def evaluate(path):
-    run_evaluation_suite(path)
+def evaluate(dir):
+    run_evaluation_suite(dir)
 
 
 if __name__ == "__main__":

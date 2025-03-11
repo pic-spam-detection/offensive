@@ -5,3 +5,5 @@ click
 pre-commit
 nltk
 dotenv
+wordcloud
+seaborn
