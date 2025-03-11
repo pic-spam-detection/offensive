@@ -11,7 +11,7 @@ def run_pipeline(config_file):
 
     for step in config["pipeline"]:
         i += 1
-        print(f"Running {step['step']} [{i + 1} / {n_steps}]:")
+        print(f"Running {step['step']} [{i} / {n_steps}]:")
 
         command = ["python", step["script"]]
         command.extend(step["args"])
