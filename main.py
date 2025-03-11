@@ -7,23 +7,7 @@ from tqdm import tqdm
 import pandas as pd
 from src.strategy.zero_shot import ZeroShotStrategy
 from src.strategy.few_shot import FewShotStrategy
-
-
-def write_as_csv(samples, output_filename):
-    formatted_samples = []
-
-    for sample in samples:
-        formatted_samples.append(
-            {
-                "Message": sample["text"],
-                "Subject": sample["subject"],
-                "Spam/Ham": "spam",
-                "Date": "2025-03-08",  # @TODO generate random date
-            }
-        )
-
-    df = pd.DataFrame(formatted_samples)
-    df.to_csv(output_filename, index=False)  # index=False to avoid writing row indices
+from src.utils import write_as_csv
 
 
 @click.group()
