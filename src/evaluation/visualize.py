@@ -26,6 +26,7 @@ def plot_word_cloud(texts, save_filepath):
     plt.imshow(wordcloud)
     plt.axis("off")
     plt.savefig(save_filepath, bbox_inches="tight")
+    plt.clf()
 
 
 def plot_word_frequency(texts, save_filepath):
@@ -43,6 +44,7 @@ def plot_word_frequency(texts, save_filepath):
     plt.ylabel("Frequency")
     plt.xticks(rotation=45)
     plt.savefig(save_filepath, bbox_inches="tight")
+    plt.clf()
 
 
 def plot_bigrams_frequency(texts, save_filepath):
@@ -60,3 +62,4 @@ def plot_bigrams_frequency(texts, save_filepath):
     plt.xticks(rotation=45)
     plt.ylabel("Frequency")
     plt.savefig(save_filepath, bbox_inches="tight")
+    plt.clf()
