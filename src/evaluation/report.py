@@ -52,8 +52,8 @@ def run_evaluation_suite(data_dir: str):
             print(f"\nSelf-BLEU: {mean_bleu_score:.3f}")
 
             for metric, get_metric in visual_metrics.items():
-                filename = os.path.join(results_dir, f"{model_name}_{metric}.png")
-                get_metric(texts, filename)
+                filename = f"{model_name}_{metric}.png"
+                get_metric(texts, os.path.join(results_dir, filename))
                 results[model_name][metric] = filename
 
             write_template(results, os.path.join(results_dir, "report.html"))
