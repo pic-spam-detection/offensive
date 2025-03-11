@@ -1,5 +1,6 @@
 import yaml
 import subprocess
+import torch
 
 
 def run_pipeline(config_file):
@@ -20,6 +21,9 @@ def run_pipeline(config_file):
             command.extend([f"--{key}", str(value)])
 
         subprocess.run(command, check=True)
+
+        # Free CUDA memory after each step
+        torch.cuda.empty_cache()
 
 
 if __name__ == "__main__":
