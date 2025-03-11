@@ -36,11 +36,10 @@ def run_evaluation_suite(data_dir: str):
             df = pd.read_csv(file_path).dropna()  # @TODO consider only spam emails
 
             bleu_scores = []
-            full_text = ""
+            texts = df["Message"].to_numpy()
 
             for index, row in df.iterrows():
                 spam = row["Message"]
-                full_text += spam
                 sentences = nltk.sent_tokenize(spam)
                 bleu_scores.append(get_self_bleu(sentences))
 
@@ -50,5 +49,5 @@ def run_evaluation_suite(data_dir: str):
 
             for metric, get_metric in visual_metrics.items():
                 get_metric(
-                    full_text, os.path.join(results_dir, f"{model_name}_{metric}.png")
+                    texts, os.path.join(results_dir, f"{model_name}_{metric}.png")
                 )

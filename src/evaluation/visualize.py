@@ -10,7 +10,9 @@ from sklearn.feature_extraction.text import CountVectorizer
 import seaborn as sns
 
 
-def plot_word_cloud(text, save_filepath):
+def plot_word_cloud(texts, save_filepath):
+    full_text = " ".join(texts)
+
     wordcloud = WordCloud(
         width=3000,
         height=2000,
@@ -18,7 +20,7 @@ def plot_word_cloud(text, save_filepath):
         background_color="white",
         collocations=False,
         stopwords=STOPWORDS,
-    ).generate(text)
+    ).generate(full_text)
 
     plt.figure(figsize=(40, 30))
     plt.imshow(wordcloud)
@@ -26,8 +28,10 @@ def plot_word_cloud(text, save_filepath):
     plt.savefig(save_filepath, bbox_inches="tight")
 
 
-def plot_word_frequency(text, save_filepath):
-    words = text.lower().split()
+def plot_word_frequency(texts, save_filepath):
+    full_text = " ".join(texts)
+
+    words = full_text.lower().split()
     word_counts = Counter(words)
 
     word_freq = pd.DataFrame(
@@ -41,9 +45,9 @@ def plot_word_frequency(text, save_filepath):
     plt.savefig(save_filepath, bbox_inches="tight")
 
 
-def plot_bigrams_frequency(text, save_filepath):
+def plot_bigrams_frequency(texts, save_filepath):
     vectorizer = CountVectorizer(ngram_range=(2, 2))
-    X = vectorizer.fit_transform(text)
+    X = vectorizer.fit_transform(texts)
     bigram_counts = X.toarray().sum(axis=0)
 
     bigrams_df = pd.DataFrame(
