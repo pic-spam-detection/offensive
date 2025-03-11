@@ -1,4 +1,4 @@
-from evaluation.visualize import (
+from src.evaluation.visualize import (
     plot_bigrams_frequency,
     plot_word_cloud,
     plot_word_frequency,
