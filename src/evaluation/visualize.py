@@ -1,3 +1,7 @@
+"""
+Visualizations for the generated text.
+"""
+
 import pandas as pd
 from collections import Counter
 import matplotlib.pyplot as plt
