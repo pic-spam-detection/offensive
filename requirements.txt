@@ -8,3 +8,5 @@ dotenv
 wordcloud
 seaborn
 yaml
+optimum
+auto-gptq

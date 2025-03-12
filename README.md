@@ -79,4 +79,5 @@ autopep8 --max-line-length 60 --in-place --aggressive --aggressive <your_file>.p
 
 ## TODO
 
+- Update pipeline
 - Run LLM on enron dataset to get summaries of each email (include this in a dataset to analyse common themes of spam emails)
