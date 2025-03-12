@@ -31,6 +31,7 @@ def extract_json_list(text):
         return email_list
     else:
         print("No valid JSON found!")
+        print(text)
         return []
 
 

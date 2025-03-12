@@ -19,7 +19,7 @@ pipeline:
     params:
       <<: *defaults
       output: "generated/microsoft-Phi-3.5 Zero-shot.csv"
-      model: "microsoft/Phi-3.5"
+      model: "microsoft/Phi-3.5-mini-instruct"
       strategy: "zero-shot"
 
   - step: "Generation with Qwen/Qwen2.5-3B-Instruct-GPTQ-Int8 (0-shot)"
@@ -49,7 +49,7 @@ pipeline:
     params:
       <<: *defaults
       output: "generated/microsoft-Phi-3.5 Few-shot.csv"
-      model: "microsoft/Phi-3.5"
+      model: "microsoft/Phi-3.5-mini-instruct"
       strategy: "few-shot"
 
   - step: "Generation with Qwen/Qwen2.5-3B-Instruct-GPTQ-Int8 (few-shot)"

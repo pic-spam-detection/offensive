@@ -1,3 +1,7 @@
+"""
+The wrapper around AutoModelForQuestionAnswering interface. NB! This might be outdated.
+"""
+
 from .abstract_model import AbstractModel
 from transformers import AutoModelForQuestionAnswering, AutoTokenizer
 from dotenv import load_dotenv
