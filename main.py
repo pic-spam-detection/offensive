@@ -1,9 +1,9 @@
 import click
-from model_for_question_answering import ModelForQuestionAnswering
+from src.models.model_for_question_answering import ModelForQuestionAnswering
 from src.dataset.dataset import SpamDataset
 from src.models.gpt_model import GPT
 from src.evaluation.report import run_evaluation_suite
-from model_for_casual_lm import ModelForCausalLM
+from src.models.model_for_casual_lm import ModelForCausalLM
 from src.strategy.zero_shot import ZeroShotStrategy
 from src.strategy.few_shot import FewShotStrategy
 from src.utils import write_as_csv
