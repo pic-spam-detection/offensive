@@ -31,7 +31,9 @@ class FewShotStrategy(AbstractStrategy):
             Some examples of messages:
             {samples}
 
-            Provide a simple JSON list only without any additional text or explanations. For example: ['test', 'title2'].
+            Provide a simple JSON list only with email messages without any additional text or explanations.
+            Do not include subject lines.
+            For example: ['test', 'title2'].
         """.strip()
 
     def generate(self, n_samples=5, n_to_generate=1, batch_size=10):
