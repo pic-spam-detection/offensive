@@ -26,9 +26,14 @@ def extract_json_list(text):
         json_text = match.group(0)  # Extract the matched JSON text
 
         json_text = json_text.replace("\n    '", "'")
-        email_list = json.loads(json_text)
-        print(email_list)
-        return email_list
+        try:
+            email_list = json.loads(json_text)
+            print(email_list)
+            return email_list
+        except Exception as e:
+            print(f"Could not parse JSON, {e}")
+            print(text)
+            return []
     else:
         print("No valid JSON found!")
         print(text)

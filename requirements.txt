@@ -6,7 +6,7 @@ pre-commit
 nltk
 dotenv
 wordcloud
+pyaml
 seaborn
-yaml
 optimum
 auto-gptq
