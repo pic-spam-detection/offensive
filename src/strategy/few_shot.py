@@ -1,5 +1,6 @@
 from src.models.abstract_model import AbstractModel
 from src.dataset.dataset import SpamDataset
+from src.utils import extract_json_list
 from .abstract_strategy import AbstractStrategy
 from torch.utils.data import DataLoader, RandomSampler
 
@@ -57,8 +58,8 @@ class FewShotStrategy(AbstractStrategy):
             )
         )
 
-        print("subjects", subjects)
-        print("texts", texts)
+        print("subjects", extract_json_list(subjects))
+        print("texts", extract_json_list(texts))
 
         return [
             {

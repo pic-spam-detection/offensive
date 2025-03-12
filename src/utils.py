@@ -1,6 +1,21 @@
 import random
 from datetime import datetime, timedelta
 import pandas as pd
+import json
+import re
+
+
+def extract_json_list(text):
+    match = re.search(r"\[.*\]", text, re.DOTALL)
+
+    if match:
+        json_text = match.group(0)  # Extract the matched JSON text
+        email_list = json.loads(json_text)
+        print(email_list)
+        return email_list
+    else:
+        print("No valid JSON found!")
+        return []
 
 
 def generate_random_date(start_date: str, end_date: str) -> str:
