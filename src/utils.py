@@ -20,6 +20,7 @@ def split_into_batches(total, batch_size):
 
 
 def extract_json_list(text):
+    print("text", text)
     match = re.search(r"\[.*\]", text, re.DOTALL)
 
     if match:
