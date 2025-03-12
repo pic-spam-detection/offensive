@@ -20,7 +20,7 @@ def write_as_csv(generated_samples, output_filename):
     for sample in generated_samples:
         formatted_samples.append(
             {
-                "Message": sample["text"],
+                "Message": sample["message"],
                 "Subject": sample["subject"],
                 "Spam/Ham": "spam",
                 "Date": generate_random_date("2020-01-01", "2025-01-01"),

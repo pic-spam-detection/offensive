@@ -23,5 +23,5 @@ class ZeroShotStrategy(AbstractStrategy):
     def generate(self):
         return {
             "subject": self.generator.generate(self.subject_prompt),
-            "text": self.generator.generate(self.text_prompt),
+            "message": self.generator.generate(self.text_prompt),
         }

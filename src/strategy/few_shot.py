@@ -39,7 +39,7 @@ class FewShotStrategy(AbstractStrategy):
 
         for random_sample in random_data_loader:
             print(random_sample)
-            text_samples += random_sample["text"][0]
+            text_samples += random_sample["message"][0]
             text_samples += "\n\n"
 
             subject_samples += random_sample["subject"][0]
@@ -63,6 +63,6 @@ class FewShotStrategy(AbstractStrategy):
         return [
             {
                 "subject": "test",
-                "text": "test",
+                "message": "test",
             }
         ]

@@ -34,4 +34,4 @@ class SpamDataset(Dataset):
         text = self.data_frame.iloc[idx]["Message"]
         title = self.data_frame.iloc[idx]["Subject"]
 
-        return {"label": label, "text": text, "title": title}
+        return {"label": label, "message": text, "subject": title}
