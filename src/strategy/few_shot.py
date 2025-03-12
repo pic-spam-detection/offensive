@@ -38,6 +38,7 @@ class FewShotStrategy(AbstractStrategy):
         random_data_loader = DataLoader(self.dataset, sampler=random_sampler)
 
         for random_sample in random_data_loader:
+            print(random_sample)
             text_samples += random_sample["text"]
             text_samples += "\n\n"
 
