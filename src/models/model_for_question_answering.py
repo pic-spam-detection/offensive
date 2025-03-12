@@ -45,4 +45,6 @@ class ModelForQuestionAnswering(AbstractModel):
             self.tokenizer.convert_ids_to_tokens(input_ids[0][answer_start:answer_end])
         )
 
+        print("answer", answer)
+
         return answer
