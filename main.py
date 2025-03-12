@@ -1,8 +1,9 @@
 import click
+from model_for_question_answering import ModelForQuestionAnswering
 from src.dataset.dataset import SpamDataset
 from src.models.gpt_model import GPT
 from src.evaluation.report import run_evaluation_suite
-from src.models.llm_based_model import LLM
+from model_for_casual_lm import ModelForCausalLM
 from src.strategy.zero_shot import ZeroShotStrategy
 from src.strategy.few_shot import FewShotStrategy
 from src.utils import write_as_csv
@@ -22,11 +23,10 @@ def main():
             "GPT3",
             "microsoft/Phi-3.5-mini-instruct",
             "mistralai/Ministral-8B-Instruct-2410",
-            "meta-llama/Llama-3.1-8B-Instruct",
             "GSAI-ML/LLaDA-8B-Instruct",
             "Intel/dynamic_tinybert",
         ],
-        case_sensitive=False,
+        case_sensitive=True,
     ),
     help="Model to use for generating samples.",
 )
@@ -43,10 +43,12 @@ def main():
     help="Strategy to use.",
 )
 def generate(n_samples, model, output, strategy):
-    if model.lower() == "GPT3".lower():
+    if model == "GPT3":
         generator = GPT()
+    elif model == "Intel/dynamic_tinybert":
+        generator = ModelForQuestionAnswering(model)
     else:
-        generator = LLM(model)
+        generator = ModelForCausalLM(model)
 
     dataset = SpamDataset()
 

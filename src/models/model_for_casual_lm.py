@@ -6,7 +6,7 @@ import os
 load_dotenv()
 
 
-class LLM(AbstractModel):
+class ModelForCausalLM(AbstractModel):
     def __init__(self, llm_name):
 
         super(AbstractModel, self).__init__()
