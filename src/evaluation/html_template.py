@@ -20,7 +20,7 @@ HTML_TEMPLATE_START = """<!DOCTYPE html>
         background: white;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
-      h1 {
+      h1, h2 {
         text-align: center;
         color: #333;
       }
@@ -29,8 +29,8 @@ HTML_TEMPLATE_START = """<!DOCTYPE html>
         color: #555;
       }
       img {
-        width: 100%;
-        max-width: 400px;
+        height: 100%;
+        max-height: 300px;
         box-shadow: 0 0 15px gray;
         border-radius: 5px;
         transition: transform 0.25s ease;
@@ -44,6 +44,7 @@ HTML_TEMPLATE_START = """<!DOCTYPE html>
         justify-items: center;
         gap: 15px;
         justify-content: center;
+        align-items: center;
       }
       .image-wrapper {
         display: flex;

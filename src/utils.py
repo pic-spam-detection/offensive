@@ -20,14 +20,9 @@ def split_into_batches(total, batch_size):
 
 
 def extract_json_list(text):
-    print("text", text)
-    print("========")
-
     match = re.search(r"\[.*\]", text, re.DOTALL)
 
     if match:
-        print("match", match)
-        print("========")
         json_text = match.group(0)  # Extract the matched JSON text
 
         json_text = json_text.replace("\n    '", "'")

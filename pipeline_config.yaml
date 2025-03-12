@@ -22,24 +22,14 @@ pipeline:
       model: "microsoft/Phi-3.5"
       strategy: "zero-shot"
 
-  - step: "Generation with mistralai/Ministral-8B (0-shot)"
+  - step: "Generation with Qwen/Qwen2.5-3B-Instruct-GPTQ-Int8 (0-shot)"
     script: "main.py"
     args:
       - "generate"
     params:
       <<: *defaults
-      output: "generated/mistralai/Ministral-8B Zero-shot.csv"
-      model: "mistralai/Ministral-8B"
-      strategy: "zero-shot"
-
-  - step: "Generation with meta-llama/Llama-3.1-8B (0-shot)"
-    script: "main.py"
-    args:
-      - "generate"
-    params:
-      <<: *defaults
-      output: "generated/meta-llama/Llama-3.1-8B Zero-shot.csv"
-      model: "meta-llama/Llama-3.1-8B"
+      output: "generated/Qwen2.5-3B-Instruct-GPTQ-Int8 Zero-shot.csv"
+      model: "Qwen/Qwen2.5-3B-Instruct-GPTQ-Int8"
       strategy: "zero-shot"
 
   - step: "Generation with GPT3 (few-shot)"
@@ -62,24 +52,14 @@ pipeline:
       model: "microsoft/Phi-3.5"
       strategy: "few-shot"
 
-  - step: "Generation with mistralai/Ministral-8B (few-shot)"
+  - step: "Generation with Qwen/Qwen2.5-3B-Instruct-GPTQ-Int8 (few-shot)"
     script: "main.py"
     args:
       - "generate"
     params:
       <<: *defaults
-      output: "generated/mistralai/Ministral-8B Few-shot.csv"
-      model: "mistralai/Ministral-8B"
-      strategy: "few-shot"
-
-  - step: "Generation with meta-llama/Llama-3.1-8B (few-shot)"
-    script: "main.py"
-    args:
-      - "generate"
-    params:
-      <<: *defaults
-      output: "generated/meta-llama/Llama-3.1-8B Few-shot.csv"
-      model: "meta-llama/Llama-3.1-8B"
+      output: "generated/Qwen2.5-3B-Instruct-GPTQ-Int8 Few-shot.csv"
+      model: "Qwen/Qwen2.5-3B-Instruct-GPTQ-Int8"
       strategy: "few-shot"
 
   - step: "Evaluation"

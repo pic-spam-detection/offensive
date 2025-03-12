@@ -55,10 +55,19 @@ HF_TOKEN={your access token}
 python main.py generate --n_samples <n_samples> --output <output_filepath> --model <model_name>
 ```
 
+The results will be saved in a CSV file in the format used by Enron dataset (https://github.com/MWiechmann/enron_spam_data).
+
+| Column   | Explanation                                                                                                                                                                                                                        |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Subject  | The subject line of the e-mail                                                                                                                                                                                                     |
+| Message  | The content of the e-mail. Can contain an empty string if the message had only a subject line and no body. In case of forwarded emails or replies, this also contains the original message with subject line, "from:", "to:", etc. |
+| Spam/Ham | Has the values "spam" or "ham". Whether the message was categorized as a spam message or not.                                                                                                                                      |
+| Date     | The date the e-mail arrived. Has a YYYY-MM-DD format.                                                                                                                                                                              |
+
 ### Evaluate
 
 ```bash
-python main.py evaluate --model <model_name>
+python main.py evaluate --
 ```
 
 ---
