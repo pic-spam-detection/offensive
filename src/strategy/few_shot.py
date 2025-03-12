@@ -33,7 +33,7 @@ class FewShotStrategy(AbstractStrategy):
             Provide a simple JSON list only without any additional text or explanations. For example: ['test', 'title2'].
         """.strip()
 
-    def generate(self, n_samples=5, n_to_generate=1, batch_size=100):
+    def generate(self, n_samples=5, n_to_generate=1, batch_size=10):
         subjects = []
         texts = []
 

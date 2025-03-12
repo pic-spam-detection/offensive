@@ -26,7 +26,7 @@ class ZeroShotStrategy(AbstractStrategy):
         """.strip()
 
     # @TODO enforce types
-    def generate(self, n_to_generate=1, batch_size=100):
+    def generate(self, n_to_generate=1, batch_size=10):
         subjects = []
         texts = []
 
