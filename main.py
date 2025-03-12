@@ -23,6 +23,7 @@ def main():
             "GPT3",
             "microsoft/Phi-3.5-mini-instruct",
             "Qwen/Qwen2.5-14B-Instruct-1M",
+            "Qwen/Qwen2.5-3B-Instruct-GPTQ-Int8",
             "mistralai/Ministral-8B-Instruct-2410",
             "GSAI-ML/LLaDA-8B-Instruct",
             "Intel/dynamic_tinybert",
