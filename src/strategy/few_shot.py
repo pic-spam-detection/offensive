@@ -18,7 +18,7 @@ class FewShotStrategy(AbstractStrategy):
             Some examples of subject lines:
             {samples}
 
-            Provide JSON list only without any additional text or explanations.
+            Provide a simple JSON list only without any additional text or explanations. For example: ['test', 'subject2'].
         """.strip()
 
         self.text_prompt = """
@@ -30,7 +30,7 @@ class FewShotStrategy(AbstractStrategy):
             Some examples of messages:
             {samples}
 
-            Provide JSON list only without any additional text or explanations.
+            Provide a simple JSON list only without any additional text or explanations. For example: ['test', 'subject2'].
         """.strip()
 
     def generate(self, n_samples=5, n_to_generate=1, batch_size=100):
