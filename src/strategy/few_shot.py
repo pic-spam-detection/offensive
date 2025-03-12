@@ -1,7 +1,7 @@
 from src.models.abstract_model import AbstractModel
 from src.dataset.dataset import SpamDataset
 from .abstract_strategy import AbstractStrategy
-from torch.utils.data import RandomSampler
+from torch.utils.data import DataLoader, RandomSampler
 
 
 class FewShotStrategy(AbstractStrategy):
@@ -28,14 +28,16 @@ class FewShotStrategy(AbstractStrategy):
             {samples}
         """.strip()
 
-    def generate(self, n_samples=5, n_to_generate=1):
+    def generate(self, n_samples=5, n_to_generate=1, batch_size=100):
         subject_samples = ""
         text_samples = ""
 
-        for _ in range(n_samples):
-            random_sample = RandomSampler(
-                self.dataset, num_samples=n_samples, replacement=False
-            )
+        random_sampler = RandomSampler(
+            self.dataset, num_samples=n_samples, replacement=False
+        )
+        random_data_loader = DataLoader(self.dataset, sampler=random_sampler)
+
+        for random_sample in random_data_loader:
             text_samples += random_sample["text"]
             text_samples += "\n\n"
 
