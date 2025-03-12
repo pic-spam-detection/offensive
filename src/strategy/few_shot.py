@@ -58,12 +58,13 @@ class FewShotStrategy(AbstractStrategy):
             )
         )
 
-        print("subjects", extract_json_list(subjects))
-        print("texts", extract_json_list(texts))
+        subjects = extract_json_list(subjects)
+        texts = extract_json_list(texts)
+
+        print("subjects", subjects)
+        print("texts", texts)
 
         return [
-            {
-                "subject": "test",
-                "message": "test",
-            }
+            {"subject": subject, "message": text}
+            for subject, text in zip(subjects, texts)
         ]
