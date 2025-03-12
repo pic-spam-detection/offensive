@@ -25,7 +25,9 @@ class ZeroShotStrategy(AbstractStrategy):
             Subject lines of the emails to generate:
             {subjects}
 
-            Provide a simple JSON list only without any additional text or explanations. For example: ['test', 'title2'].
+            Provide a simple JSON list only with email messages without any additional text or explanations.
+            Do not include subject lines.
+            For example: ['test', 'title2'].
         """.strip()
 
     # @TODO enforce types
