@@ -53,16 +53,16 @@ class FewShotStrategy(AbstractStrategy):
                 subject_samples += random_sample["subject"][0]
                 subject_samples += "\n\n"
 
-            subjects = self.generator.generate(
+            new_subjects = self.generator.generate(
                 self.subject_prompt.format(samples=subject_samples, n_to_generate=batch)
             )
 
-            texts = self.generator.generate(
+            new_texts = self.generator.generate(
                 self.text_prompt.format(samples=subject_samples, n_to_generate=batch)
             )
 
-            subjects.extend(extract_json_list(subjects))
-            texts.extend(extract_json_list(texts))
+            subjects.extend(extract_json_list(new_subjects))
+            texts.extend(extract_json_list(new_texts))
 
         print("subjects", subjects)
         print("texts", texts)

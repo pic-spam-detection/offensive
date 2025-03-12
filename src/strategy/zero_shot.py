@@ -31,16 +31,16 @@ class ZeroShotStrategy(AbstractStrategy):
         texts = []
 
         for batch in split_into_batches(n_to_generate, batch_size):
-            subjects = self.generator.generate(
+            new_subjects = self.generator.generate(
                 self.subject_prompt.format(n_to_generate=batch)
             )
 
-            texts = self.generator.generate(
+            new_texts = self.generator.generate(
                 self.text_prompt.format(n_to_generate=batch)
             )
 
-            subjects.extend(extract_json_list(subjects))
-            texts.extend(extract_json_list(texts))
+            subjects.extend(extract_json_list(new_subjects))
+            texts.extend(extract_json_list(new_texts))
 
         print("subjects", subjects)
         print("texts", texts)
