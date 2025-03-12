@@ -94,5 +94,5 @@ python3 main.py evaluate --model <model_name>
 
 ## TODO
 
-- Generate messages and subjects together
+- Generate report - IN PROGRESS Kateryna
 - Run LLM on enron dataset to get summaries of each email (include this in a dataset to analyse common themes of spam emails)
