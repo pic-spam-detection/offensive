@@ -1,6 +1,6 @@
 from src.models.abstract_model import AbstractModel
 from src.dataset.dataset import SpamDataset
-from utils import extract_json_list, split_into_batches
+from src.utils import extract_json_list, split_into_batches
 from .abstract_strategy import AbstractStrategy
 
 
