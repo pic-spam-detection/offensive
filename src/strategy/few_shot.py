@@ -10,23 +10,25 @@ class FewShotStrategy(AbstractStrategy):
 
         self.subject_prompt = """
             I want to train a classifier to detect spam emails.
-            Please generate an example of a subject line of spam email that is difficult to detect.
-            Provide a subject line only without any additional text and without "Subject" at the beginning.
+            Please generate {n_to_generate} examples of subject lines of spam emails that are difficult to detect.
+            Provide {n_to_generate} subject lines only without any additional text and without "Subject" at the beginning.
+            Provide subject lines as a list in JSON format.
 
-            Some examples:
+            Some examples of subject lines:
             {samples}
         """.strip()
 
         self.text_prompt = """
             I want to train a classifier to detect spam emails.
-            Please generate an example of a spam email that is difficult to detect.
-            Provide a body of the email only without any additional text.
+            Please generate {n_to_generate} examples of spam emails that are difficult to detect.
+            Provide {n_to_generate} bodies of emails only without any additional text.
+            Provide these messages as a list in JSON format.
 
-            Some email examples:
+            Some examples of messages:
             {samples}
         """.strip()
 
-    def generate(self, n_samples=5):
+    def generate(self, n_samples=5, n_to_generate=1):
         subject_samples = ""
         text_samples = ""
 
@@ -40,11 +42,22 @@ class FewShotStrategy(AbstractStrategy):
             subject_samples += random_sample["subject"]
             subject_samples += "\n\n"
 
+        subjects = self.generator.generate(
+            self.subject_prompt.format(
+                samples=subject_samples, n_to_generate=n_to_generate
+            )
+        )
+
+        texts = self.generator.generate(
+            self.text_prompt.format(
+                samples=subject_samples, n_to_generate=n_to_generate
+            )
+        )
+
+        print("subjects", subjects)
+        print("texts", texts)
+
         return {
-            "subject": self.generator.generate(
-                self.subject_prompt.format(samples=subject_samples)
-            ),
-            "text": self.generator.generate(
-                self.text_prompt.format(samples=text_samples)
-            ),
+            "subject": "test",
+            "text": "test",
         }
