@@ -29,6 +29,8 @@ def extract_json_list(text):
         print("match", match)
         print("========")
         json_text = match.group(0)  # Extract the matched JSON text
+
+        json_text = json_text.replace("\n    '", "'")
         email_list = json.loads(json_text)
         print(email_list)
         return email_list
