@@ -3,8 +3,6 @@ from src.dataset.dataset import SpamDataset
 from src.models.gpt_model import GPT
 from src.evaluation.report import run_evaluation_suite
 from src.models.llm_based_model import LLM
-from tqdm import tqdm
-import pandas as pd
 from src.strategy.zero_shot import ZeroShotStrategy
 from src.strategy.few_shot import FewShotStrategy
 from src.utils import write_as_csv
@@ -25,6 +23,7 @@ def main():
             "microsoft/Phi-3.5",
             "mistralai/Ministral-8B",
             "meta-llama/Llama-3.1-8B",
+            "GSAI-ML/LLaDA-8B-Instruct",
         ],
         case_sensitive=False,
     ),
@@ -51,6 +50,8 @@ def generate(n_samples, model, output, strategy):
         generator = LLM("mistralai/Ministral-8B-Instruct-2410")
     elif model.lower() == "meta-llama/Llama-3.1-8B".lower():
         generator = LLM("meta-llama/Llama-3.1-8B-Instruct")
+    elif model.lower() == "GSAI-ML/LLaDA-8B-Instruct".lower():
+        generator = LLM("GSAI-ML/LLaDA-8B-Instruct")
     else:
         raise Exception(f"Unknown model: {model}")
 

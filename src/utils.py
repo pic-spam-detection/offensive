@@ -5,6 +5,20 @@ import json
 import re
 
 
+def split_into_batches(total, batch_size):
+    if total <= batch_size:
+        return [total]
+
+    batches = []
+
+    while total > 0:
+        current_batch = min(batch_size, total)
+        batches.append(current_batch)
+        total -= current_batch
+
+    return batches
+
+
 def extract_json_list(text):
     match = re.search(r"\[.*\]", text, re.DOTALL)
 
