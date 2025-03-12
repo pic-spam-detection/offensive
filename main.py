@@ -20,10 +20,11 @@ def main():
     type=click.Choice(
         [
             "GPT3",
-            "microsoft/Phi-3.5",
-            "mistralai/Ministral-8B",
-            "meta-llama/Llama-3.1-8B",
+            "microsoft/Phi-3.5-mini-instruct",
+            "mistralai/Ministral-8B-Instruct-2410",
+            "meta-llama/Llama-3.1-8B-Instruct",
             "GSAI-ML/LLaDA-8B-Instruct",
+            "Intel/dynamic_tinybert",
         ],
         case_sensitive=False,
     ),
@@ -44,16 +45,8 @@ def main():
 def generate(n_samples, model, output, strategy):
     if model.lower() == "GPT3".lower():
         generator = GPT()
-    elif model.lower() == "microsoft/Phi-3.5".lower():
-        generator = LLM("microsoft/Phi-3.5-mini-instruct")
-    elif model.lower() == "mistralai/Ministral-8B".lower():
-        generator = LLM("mistralai/Ministral-8B-Instruct-2410")
-    elif model.lower() == "meta-llama/Llama-3.1-8B".lower():
-        generator = LLM("meta-llama/Llama-3.1-8B-Instruct")
-    elif model.lower() == "GSAI-ML/LLaDA-8B-Instruct".lower():
-        generator = LLM("GSAI-ML/LLaDA-8B-Instruct")
     else:
-        raise Exception(f"Unknown model: {model}")
+        generator = LLM(model)
 
     dataset = SpamDataset()
 
