@@ -57,7 +57,9 @@ class FewShotStrategy(AbstractStrategy):
         print("subjects", subjects)
         print("texts", texts)
 
-        return {
-            "subject": "test",
-            "text": "test",
-        }
+        return [
+            {
+                "subject": "test",
+                "text": "test",
+            }
+        ]

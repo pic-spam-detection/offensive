@@ -61,12 +61,7 @@ def generate(n_samples, model, output, strategy):
     else:
         strategy = FewShotStrategy(dataset, generator)
 
-    emails = []
-
-    for _ in tqdm(range(n_samples)):
-        spam = strategy.generate()
-        emails.append(spam)
-
+    emails = strategy.generate(n_to_generate=n_samples)
     print(emails)
 
     write_as_csv(emails, output)
