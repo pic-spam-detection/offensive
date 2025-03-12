@@ -47,8 +47,6 @@ HF_TOKEN={your access token}
 
 ## **Usage**
 
-@TODO Update usage
-
 ### Generate
 
 ```bash
@@ -67,15 +65,17 @@ The results will be saved in a CSV file in the format used by Enron dataset (htt
 ### Evaluate
 
 ```bash
-python main.py evaluate --
+python main.py evaluate --dir <dir_with_results>
 ```
 
----
+Pass to `--dir` path to the directory containing CSV files with generated emails.
 
-If mutliple versions of Python are available, use Python 3. For example:
+### Automatic pipeline
+
+The file `pipeline_config.yaml` contains a configuration of the automatic pipeline for evaluation and generation of a report with results for several models. To run the pipeline, execute:
 
 ```bash
-python3 main.py evaluate --model <model_name>
+python run_pipeline.py
 ```
 
 ## **Known issues**
@@ -84,6 +84,12 @@ python3 main.py evaluate --model <model_name>
 
 ```bash
 autopep8 --max-line-length 60 --in-place --aggressive --aggressive <your_file>.py
+```
+
+- If mutliple versions of Python are available, use Python 3. For example:
+
+```bash
+python3 main.py evaluate --model <model_name>
 ```
 
 ## TODO
