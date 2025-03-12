@@ -21,7 +21,10 @@ class ZeroShotStrategy(AbstractStrategy):
             I want to train a classifier to detect spam emails.
             Please generate {n_to_generate} examples of spam emails that are difficult to detect.
             Provide {n_to_generate} bodies of emails only without any additional text.
-            Provide these messages as a list in JSON format.
+
+            Subject lines of the emails to generate:
+            {subjects}
+
             Provide a simple JSON list only without any additional text or explanations. For example: ['test', 'title2'].
         """.strip()
 
@@ -34,12 +37,13 @@ class ZeroShotStrategy(AbstractStrategy):
             new_subjects = self.generator.generate(
                 self.subject_prompt.format(n_to_generate=batch)
             )
+            new_subjects = extract_json_list(new_subjects)
 
             new_texts = self.generator.generate(
-                self.text_prompt.format(n_to_generate=batch)
+                self.text_prompt.format(n_to_generate=batch, subjects=new_subjects)
             )
 
-            subjects.extend(extract_json_list(new_subjects))
+            subjects.extend(new_subjects)
             texts.extend(extract_json_list(new_texts))
 
         print("subjects", subjects)
