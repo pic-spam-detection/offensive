@@ -12,13 +12,13 @@ class FewShotStrategy(AbstractStrategy):
         self.subject_prompt = """
             I want to train a classifier to detect spam emails.
             Please generate {n_to_generate} examples of subject lines of spam emails that are difficult to detect.
-            Provide {n_to_generate} subject lines only without any additional text and without "Subject" at the beginning.
+            Provide {n_to_generate} subject lines only without any additional text.
             Provide subject lines as a list in JSON format.
 
             Some examples of subject lines:
             {samples}
 
-            Provide a simple JSON list only without any additional text or explanations. For example: ['test', 'subject2'].
+            Provide a simple JSON list only without any additional text or explanations. Do not add "Subject" at the beginning. For example: ['test', 'title2'].
         """.strip()
 
         self.text_prompt = """
@@ -30,7 +30,7 @@ class FewShotStrategy(AbstractStrategy):
             Some examples of messages:
             {samples}
 
-            Provide a simple JSON list only without any additional text or explanations. For example: ['test', 'subject2'].
+            Provide a simple JSON list only without any additional text or explanations. For example: ['test', 'title2'].
         """.strip()
 
     def generate(self, n_samples=5, n_to_generate=1, batch_size=100):
