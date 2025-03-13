@@ -34,7 +34,7 @@ class ModelForCausalLM(AbstractModel):
 
     def generate(self, question):
         generation_args = {
-            "max_new_tokens": 500,
+            "max_new_tokens": 2000,
             "return_full_text": False,
             "temperature": 0.9,
             "do_sample": True,
