@@ -20,6 +20,10 @@ def split_into_batches(total, batch_size):
 
 
 def extract_json_list(text):
+    # Quick fix
+    text = text.replace("\n", " ")
+    text = text.replace("\t", " ")
+
     match = re.search(r"\[.*\]", text, re.DOTALL)
 
     if match:
