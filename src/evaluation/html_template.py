@@ -90,7 +90,8 @@ def write_template(data, filepath):
                 <p>{metric}</p>
             </div>
         """
-    result += "</div></div>"
+        result += "</div>"
+    result += "</div>"
     result += HTML_TEMPLATE_END
 
     with open(filepath, "w") as file:
