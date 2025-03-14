@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evaluation of Spam Email Generation</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+        padding: 20px;
+        background: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1,
+      h2,
+      h3 {
+        text-align: center;
+        color: #333;
+      }
+      p {
+        line-height: 1.6;
+        color: #555;
+      }
+      img {
+        height: 100%;
+        max-height: 300px;
+        box-shadow: 0 0 15px gray;
+        border-radius: 5px;
+        transition: transform 0.25s ease;
+        cursor: zoom-in;
+        margin: 5px;
+      }
+      .images-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+      }
+      img.zoomed {
+        cursor: zoom-out;
+      }
+      .images-container {
+        display: flex;
+        justify-items: center;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+      }
+      .image-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Evaluation of Spam Email Generation</h1>
+    </header>
+    <div class="container">
+      <h2>Evaluation on classifiers</h2>
+      <div class="images-grid">
+        <img src="GPT3 Zero-shot.png" />
+        <img src="GPT3 Few-shot.png" />
+        <img src="Qwen2.5-3B-Instruct-GPTQ-Int8 Zero-shot.png" />
+        <img src="Qwen2.5-3B-Instruct-GPTQ-Int8 Few-shot.png" />
+        <img src="microsoft-Phi-3.5-mini-instruct Zero-shot.png" />
+        <img src="microsoft-Phi-3.5-mini-instruct Few-shot.png" />
+      </div>
+      <h2>Generation models evaluation</h2>
+      <h3>GPT3 Zero-shot</h3>
+      <div class="images-container">
+        <div class="image-wrapper">
+          <img src="GPT3 Zero-shot_word cloud.png" />
+          <p>word cloud</p>
+        </div>
+
+        <div class="image-wrapper">
+          <img src="GPT3 Zero-shot_word frequency.png" />
+          <p>word frequency</p>
+        </div>
+
+        <div class="image-wrapper">
+          <img src="GPT3 Zero-shot_bigrams frequency.png" />
+          <p>bigrams frequency</p>
+        </div>
+      </div>
+
+      <h3>GPT3 Few-shot</h3>
+      <div class="images-container">
+        <div class="image-wrapper">
+          <img src="GPT3 Few-shot_word cloud.png" />
+          <p>word cloud</p>
+        </div>
+
+        <div class="image-wrapper">
+          <img src="GPT3 Few-shot_word frequency.png" />
+          <p>word frequency</p>
+        </div>
+
+        <div class="image-wrapper">
+          <img src="GPT3 Few-shot_bigrams frequency.png" />
+          <p>bigrams frequency</p>
+        </div>
+      </div>
+
+      <h3>Qwen2.5-3B-Instruct-GPTQ-Int8 Zero-shot</h3>
+      <div class="images-container">
+        <div class="image-wrapper">
+          <img src="Qwen2.5-3B-Instruct-GPTQ-Int8 Zero-shot_word cloud.png" />
+          <p>word cloud</p>
+        </div>
+
+        <div class="image-wrapper">
+          <img
+            src="Qwen2.5-3B-Instruct-GPTQ-Int8 Zero-shot_word frequency.png"
+          />
+          <p>word frequency</p>
+        </div>
+
+        <div class="image-wrapper">
+          <img
+            src="Qwen2.5-3B-Instruct-GPTQ-Int8 Zero-shot_bigrams frequency.png"
+          />
+          <p>bigrams frequency</p>
+        </div>
+      </div>
+      <h3>Qwen2.5-3B-Instruct-GPTQ-Int8 Few-shot</h3>
+      <div class="images-container">
+        <div class="image-wrapper">
+          <img src="Qwen2.5-3B-Instruct-GPTQ-Int8 Few-shot_word cloud.png" />
+          <p>word cloud</p>
+        </div>
+
+        <div class="image-wrapper">
+          <img
+            src="Qwen2.5-3B-Instruct-GPTQ-Int8 Few-shot_word frequency.png"
+          />
+          <p>word frequency</p>
+        </div>
+
+        <div class="image-wrapper">
+          <img
+            src="Qwen2.5-3B-Instruct-GPTQ-Int8 Few-shot_bigrams frequency.png"
+          />
+          <p>bigrams frequency</p>
+        </div>
+      </div>
+      <h3>microsoft-Phi-3.5-mini-instruct Zero-shot</h3>
+      <div class="images-container">
+        <div class="image-wrapper">
+          <img src="microsoft-Phi-3.5-mini-instruct Zero-shot_word cloud.png" />
+          <p>word cloud</p>
+        </div>
+
+        <div class="image-wrapper">
+          <img
+            src="microsoft-Phi-3.5-mini-instruct Zero-shot_word frequency.png"
+          />
+          <p>word frequency</p>
+        </div>
+
+        <div class="image-wrapper">
+          <img
+            src="microsoft-Phi-3.5-mini-instruct Zero-shot_bigrams frequency.png"
+          />
+          <p>bigrams frequency</p>
+        </div>
+      </div>
+      <h3>microsoft-Phi-3.5-mini-instruct Few-shot</h3>
+      <div class="images-container">
+        <div class="image-wrapper">
+          <img src="microsoft-Phi-3.5-mini-instruct Few-shot_word cloud.png" />
+          <p>word cloud</p>
+        </div>
+
+        <div class="image-wrapper">
+          <img
+            src="microsoft-Phi-3.5-mini-instruct Few-shot_word frequency.png"
+          />
+          <p>word frequency</p>
+        </div>
+
+        <div class="image-wrapper">
+          <img
+            src="microsoft-Phi-3.5-mini-instruct Few-shot_bigrams frequency.png"
+          />
+          <p>bigrams frequency</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll("img").forEach((i) => {
+        i.addEventListener("click", (evt) => {
+          if (i.classList.contains("zoomed")) i.style.transform = "";
+          else {
+            const myScale = 700 / i.clientWidth;
+            i.style.transform = `scale(${myScale})`;
+          }
+          i.classList.toggle("zoomed");
+        });
+      });
+    </script>
+  </body>
+</html>
