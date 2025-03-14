@@ -80,7 +80,7 @@ HTML_TEMPLATE_END = """
 def write_template(data, filepath):
     result = HTML_TEMPLATE_START + '<div class="container">'
     for model, plots in data.items():
-        result += f"<h2>{model}</h2>"
+        result += f"<h3>{model}</h3>"
         result += '<div class="images-container">'
 
         for metric, plot in plots.items():

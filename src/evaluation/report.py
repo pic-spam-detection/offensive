@@ -56,4 +56,4 @@ def run_evaluation_suite(data_dir: str):
                 get_metric(texts, os.path.join(results_dir, filename))
                 results[model_name][metric] = filename
 
-            write_template(results, os.path.join(results_dir, "report.html"))
+    write_template(results, os.path.join(results_dir, "report.html"))

@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS
 from sklearn.feature_extraction.text import CountVectorizer
 import seaborn as sns
+import re
 
 
 def plot_word_cloud(texts, save_filepath):
@@ -32,7 +33,8 @@ def plot_word_cloud(texts, save_filepath):
 def plot_word_frequency(texts, save_filepath):
     full_text = " ".join(texts)
 
-    words = full_text.lower().split()
+    cleaned_text = re.sub(r"[-/]", " ", full_text)  # Replace '-' and '/' with space
+    words = cleaned_text.lower().split()
     word_counts = Counter(words)
 
     word_freq = pd.DataFrame(
